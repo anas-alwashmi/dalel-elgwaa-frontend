@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const SocialLinksDark = ({ styles, data, t }) => {
   return (
@@ -9,7 +10,12 @@ const SocialLinksDark = ({ styles, data, t }) => {
           target="_blank"
           className="flex items-center gap-x-[8px]"
         >
-          <img src="/Preheader/socials/facebookDark.svg" alt="facebook" />
+          <Image
+            src="/Preheader/socials/facebookDark.svg"
+            alt="facebook"
+            width={24}
+            height={24}
+          />
           <span className="text-[14px] md:text-[16px] text-gray-800">
             {t("company.title")}
           </span>
@@ -21,7 +27,12 @@ const SocialLinksDark = ({ styles, data, t }) => {
           target="_blank"
           className="flex items-center gap-x-[8px]"
         >
-          <img src="/Preheader/socials/xDark.svg" alt="x" />
+          <Image
+            src="/Preheader/socials/xDark.svg"
+            alt="x"
+            width={24}
+            height={24}
+          />
           <span className="text-[14px] md:text-[16px] text-gray-800">
             {t("company.title")}
           </span>
@@ -33,7 +44,12 @@ const SocialLinksDark = ({ styles, data, t }) => {
           target="_blank"
           className="flex items-center gap-x-[8px]"
         >
-          <img src="/Preheader/socials/instaDark.svg" alt="instagram" />
+          <Image
+            src="/Preheader/socials/instaDark.svg"
+            alt="instagram"
+            width={24}
+            height={24}
+          />
           <span className="text-[14px] md:text-[16px] text-gray-800">
             {t("company.title")}
           </span>
@@ -45,7 +61,12 @@ const SocialLinksDark = ({ styles, data, t }) => {
           target="_blank"
           className="flex items-center gap-x-[8px]"
         >
-          <img src="/Preheader/socials/linkedindark.svg" alt="linkedin" />
+          <Image
+            src="/Preheader/socials/linkedindark.svg"
+            alt="linkedin"
+            width={24}
+            height={24}
+          />
           <span className="text-[14px] md:text-[16px] text-gray-800">
             {t("company.title")}
           </span>
@@ -57,7 +78,12 @@ const SocialLinksDark = ({ styles, data, t }) => {
           target="_blank"
           className="flex items-center gap-x-[8px]"
         >
-          <img src="/Preheader/socials/whatsappDark.svg" alt="whatsapp" />
+          <Image
+            src="/Preheader/socials/whatsappDark.svg"
+            alt="whatsapp"
+            width={24}
+            height={24}
+          />
           <span className="text-[14px] md:text-[16px] text-gray-800">
             {t("company.title")}
           </span>

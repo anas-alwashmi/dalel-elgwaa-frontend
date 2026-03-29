@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -38,25 +39,31 @@ export default function GallerySwiper({ images, selectedImg, setSelectedImg }) {
         {images?.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <img
-                className={`aspect-[1.36/1] object-cover rounded-lg transition-all duration-300 ${
-                  index === selectedImg
-                    ? "border-2 border-custom-secondarycolor"
-                    : ""
-                }`}
-                src={item}
-                alt={`Thumbnail ${index + 1}`}
-                onClick={() => setSelectedImg(index)}
-                onContextMenu={(e) => e.preventDefault()}
-              />
+              <div className="relative aspect-[1.36/1]">
+                <Image
+                  className={`object-cover rounded-lg transition-all duration-300 ${
+                    index === selectedImg
+                      ? "border-2 border-custom-secondarycolor"
+                      : ""
+                  }`}
+                  src={item}
+                  alt={`Thumbnail ${index + 1}`}
+                  fill
+                  onClick={() => setSelectedImg(index)}
+                  onContextMenu={(e) => e.preventDefault()}
+                  unoptimized={true}
+                />
+              </div>
               {/* Watermark at Bottom Right */}
               <div
-                className="absolute bottom-2 right-2 opacity-50 cursor-pointer"
+                className="absolute bottom-2 right-2 opacity-50 cursor-pointer z-10"
                 onClick={() => setSelectedImg(index)}
               >
-                <img
+                <Image
                   src="/watermark/watermark.svg"
                   alt="Dalel Jawaa Watermark"
+                  width={32}
+                  height={32}
                   className="w-8 h-8 object-contain"
                 />
               </div>

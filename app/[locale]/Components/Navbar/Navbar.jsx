@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { RiEarthLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
@@ -96,12 +97,15 @@ export default function NavBar(props) {
       <Typography onClick={handleDrawerToggle} variant="div" sx={{ my: 2 }}>
         <Link href={`/`}>
           {logo && (
-            <img
-              className="w-[210px] h-[61px]"
+            <Image
+              className="w-[210px] h-[61px] object-contain"
               style={{ margin: "0 auto" }}
               src={logo}
               alt="Logo"
+              width={210}
+              height={61}
               draggable="false"
+              unoptimized={true}
             />
           )}
         </Link>
@@ -118,7 +122,7 @@ export default function NavBar(props) {
                 textAlign: "left",
               }}
             >
-              <img
+              <Image
                 src={item.icon} // Dynamically fetch the icon path
                 alt={`${item.label} Icon`} // Accessibility alt text
                 width={24}
@@ -198,16 +202,17 @@ export default function NavBar(props) {
               minHeight: "32px",
             }}
           >
-            <Link href={`/`} className=" w-full">
+            <Link href={`/`} className=" w-full px-4">
               {logo && (
-                <img
+                <Image
                   src={logo}
-                  // src="/logo.svg"
                   className="h-[80px] object-contain w-[200px] lg:w-[250px]"
                   alt="Logo"
-                  width={150}
-                  height={50}
+                  width={250}
+                  height={80}
                   draggable="false"
+                  priority={true}
+                  unoptimized={true}
                 />
               )}
             </Link>

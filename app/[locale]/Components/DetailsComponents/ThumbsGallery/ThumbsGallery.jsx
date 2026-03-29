@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -31,13 +32,21 @@ export default function ThumbsGallery({ gallery }) {
       >
         {gallery.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={image} alt={`Gallery Image ${index + 1}`} />
+            <div className="relative aspect-video">
+              <Image
+                src={image}
+                alt={`Gallery Image ${index + 1}`}
+                fill
+                className="object-cover"
+                unoptimized={true}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
       {/* Thumbnail Swiper */}
-      <div className="custom-swiper-thumbnail">
+      <div className="custom-swiper-thumbnail mt-4">
         <Swiper
           onSwiper={setThumbsSwiper}
           spaceBetween={10}
@@ -48,7 +57,15 @@ export default function ThumbsGallery({ gallery }) {
         >
           {gallery.map((image, index) => (
             <SwiperSlide key={index}>
-              <img src={image} alt={`Thumbnail ${index + 1}`} />
+              <div className="relative aspect-video">
+                <Image
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
+                  fill
+                  className="object-cover cursor-pointer rounded"
+                  unoptimized={true}
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

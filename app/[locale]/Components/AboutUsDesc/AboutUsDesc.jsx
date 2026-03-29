@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import React from "react";
+import Image from "next/image";
 
 export default function AboutUsDesc({ desc, locale }) {
   const t = useTranslations();
@@ -27,22 +28,26 @@ export default function AboutUsDesc({ desc, locale }) {
                 <div className="mt-[16px] flex flex-col md:flex-row gap-4 md:gap-6">
                   {/* Render the first image only if it exists */}
                   {desc?.image_one && (
-                    <figure className="w-full md:w-1/2">
-                      <img
+                    <figure className="w-full md:w-1/2 relative h-[200px]">
+                      <Image
                         src={desc.image_one}
                         alt="Certificate"
-                        className="w-full h-full object-cover rounded-lg shadow-md max-h-[400px]"
+                        fill
+                        className="w-full h-full object-cover rounded-lg shadow-md"
+                        unoptimized={true}
                       />
                     </figure>
                   )}
 
                   {/* Render the second image only if it exists */}
                   {desc?.image_two && (
-                    <figure className="w-full md:w-1/2">
-                      <img
+                    <figure className="w-full md:w-1/2 relative h-[200px]">
+                      <Image
                         src={desc.image_two}
                         alt="Certificate"
-                        className="w-full h-full object-cover rounded-lg shadow-md max-h-[400px]"
+                        fill
+                        className="w-full h-full object-cover rounded-lg shadow-md"
+                        unoptimized={true}
                       />
                     </figure>
                   )}
@@ -56,11 +61,12 @@ export default function AboutUsDesc({ desc, locale }) {
               <div className="absolute top-0 left-0 w-[54%] md:w-1/2 h-full max-h-[500px] bg-custom-maincolor rounded-[5px] overflow-hidden z-0"></div>
 
               {/* Image */}
-              <figure className="relative z-10 w-full h-full max-h-[500px]">
-                <img
+              <figure className="relative z-10 w-full h-full max-h-[500px] aspect-[800/500]">
+                <Image
                   className={`w-full h-[290px] md:h-full object-contain`}
                   src="/AboutUs/house.webp"
                   alt="House Image"
+                  fill
                 />
               </figure>
             </div>
@@ -75,9 +81,10 @@ export default function AboutUsDesc({ desc, locale }) {
             >
               {/* Image */}
               <figure className="w-full sm:w-[50%] mx-auto order-1 mb-[12px] md:mb-[0] md:flex-[.4] xl:flex-[.28] relative md-full h-[207px] md:h-[246px]">
-                <img
+                <Image
                   src="/AboutUs/message.webp"
-                  alt="Choose Us"
+                  alt="Message"
+                  fill
                   className={`w-full h-full object-cover rounded-[5px]`}
                 />
                 <div className="absolute inset-0 bg-black opacity-20 rounded-[5px]"></div>
@@ -121,14 +128,15 @@ export default function AboutUsDesc({ desc, locale }) {
               </div>
               {/* Image */}
               <figure
-                dir="rtl"
+                dir={locale === "ar" ? "rtl" : "ltr"}
                 className={
                   "w-full sm:w-[50%] mx-auto order-1 md:order-2 mb-[12px] md:mb-[0] md:flex-[.4] xl:flex-[.28] relative md:w-full h-[207px] md:h-[246px]"
                 }
               >
-                <img
+                <Image
                   src="/AboutUs/vision.webp"
-                  alt="Choose Us"
+                  alt="Vision"
+                  fill
                   className={`w-full h-full object-cover rounded-[5px]`}
                 />
                 <div className="absolute inset-0 bg-black opacity-20 rounded-[5px]"></div>

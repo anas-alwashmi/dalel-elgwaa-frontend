@@ -4,6 +4,7 @@ import styles from "./footer.module.css";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import { IoMdHeart } from "react-icons/io";
 
 function Footer({ locale }) {
@@ -51,11 +52,11 @@ function Footer({ locale }) {
   return (
     <footer className="w-full text-custom-footercolor">
       <div className="relative w-full aspect-[16/9] md:aspect-[1920/500] py-[50px]">
-        <img
+        <Image
           src="/Footer/FooterImage.webp"
           alt="Footer Background"
-          // width="1920"
-          // height="500"
+          fill
+          priority
           className={`${styles.footerBg} absolute top-0 left-0 w-full h-full object-cover`}
         />
         <div
@@ -69,11 +70,13 @@ function Footer({ locale }) {
                 {data.light_logo && (
                   <div className="w-full md:w-[50%] lg:w-[50%]">
                     <div className="flex items-center mb-[24px]">
-                      <figure className="mx-auto md:mx-0 w-[240px] h-[47px] flex items-center justify-center">
-                        <img
-                          className="h-full w-full object-cover"
+                      <figure className="mx-auto md:mx-0 w-[240px] h-[47px] flex items-center justify-center relative">
+                        <Image
+                          className="h-full w-full object-contain"
                           src={data?.light_logo}
                           alt="Logo"
+                          fill
+                          unoptimized={true}
                         />
                       </figure>
                     </div>
@@ -121,7 +124,12 @@ function Footer({ locale }) {
                   {/* Address */}
                   {data.address && (
                     <div className="flex items-start gap-x-[8px]">
-                      <img src="/Footer/MapPin.svg" alt="MapPin" />
+                      <Image
+                        src="/Footer/MapPin.svg"
+                        alt="MapPin"
+                        width={20}
+                        height={20}
+                      />
                       <p className="text-[13px] md:text-[16px] font-[500]">
                         {data.address}
                       </p>
@@ -130,7 +138,12 @@ function Footer({ locale }) {
                   {/* Phone */}
                   {(data.primary_phone || data.secondary_phone) && (
                     <div className="flex items-start gap-x-[8px]">
-                      <img src="/Footer/Phone.svg" alt="Phone" />
+                      <Image
+                        src="/Footer/Phone.svg"
+                        alt="Phone"
+                        width={20}
+                        height={20}
+                      />
                       <p
                         dir="ltr"
                         className="text-[13px] md:text-[16px] font-[500]"
@@ -151,9 +164,11 @@ function Footer({ locale }) {
                   {/* Email */}
                   {data.email && (
                     <div className="flex items-start gap-[8px]">
-                      <img
+                      <Image
                         src="/Footer/EnvelopeSimple.svg"
                         alt="EnvelopeSimple"
+                        width={20}
+                        height={20}
                       />
                       <p className="text-[13px] md:text-[16px] font-[500]">
                         {data.email}
@@ -171,22 +186,6 @@ function Footer({ locale }) {
             </>
           )}
         </div>
-        {/* copy rights */}
-        {/* <div className="text-center flex flex-wrap items-center justify-center gap-[6px] md:gap-[12px] w-full mt-[20px]">
-          <p className="text-[#fff] text-[10px] md:text-[20px] font-[500] text-center">
-            {t("Footer.rights")}
-          </p>
-          <Link
-            href={`https://da3em.co`}
-            target="_blank"
-            className="text-[#DABE28] font-[800] text-[14px] md:text-[20px] text-center"
-          >
-            {t("Footer.da3em")}
-          </Link>
-          <p className="text-[#fff] text-[10px] md:text-[20px] font-[500] text-center">
-            {t("Footer.rightsafter")}{" "}
-          </p>
-        </div> */}
       </div>
     </footer>
   );

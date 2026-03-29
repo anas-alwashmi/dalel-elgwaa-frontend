@@ -13,42 +13,42 @@ export default function ForSaleSection({ locale }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const getSlides = async (locale) => {
-    try {
-      setLoading(true);
-      setError(null);
-
-      const apiUrl = `${process.env.DB_URL || process.env.NEXT_PUBLIC_DBURL}/api/properties/home/sale`;
-      console.log("Fetching from:", apiUrl);
-
-      const response = await fetch(apiUrl, {
-        next: { revalidate: 0 },
-        headers: {
-          "Accept-Language": locale,
-          Accept: "application/json",
-        },
-      });
-
-      console.log("Response status:", response.status);
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch: ${response.status} ${response.statusText}`,
-        );
-      }
-
-      const result = await response.json();
-      console.log("API Response:", result);
-      setData(result.data);
-    } catch (error) {
-      console.error("Error fetching sale properties:", error);
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getSlides = async (locale) => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const apiUrl = `${process.env.DB_URL || process.env.NEXT_PUBLIC_DBURL}/api/properties/home/sale`;
+        console.log("Fetching from:", apiUrl);
+
+        const response = await fetch(apiUrl, {
+          next: { revalidate: 0 },
+          headers: {
+            "Accept-Language": locale,
+            Accept: "application/json",
+          },
+        });
+
+        console.log("Response status:", response.status);
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch: ${response.status} ${response.statusText}`,
+          );
+        }
+
+        const result = await response.json();
+        console.log("API Response:", result);
+        setData(result.data);
+      } catch (error) {
+        console.error("Error fetching sale properties:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getSlides(locale);
   }, [locale]);
 

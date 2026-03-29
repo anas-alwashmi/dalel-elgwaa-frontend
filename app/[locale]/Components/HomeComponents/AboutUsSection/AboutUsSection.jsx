@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const getAboutDesc = async (locale) => {
   const response = await fetch(`${process.env.DB_URL || process.env.NEXT_PUBLIC_DBURL}/api/home`, {
@@ -29,7 +30,6 @@ export default function AboutUsSection({ locale }) {
 
 const AboutUsContent = async ({ t, locale }) => {
   try {
-    // const isRtl = locale === "ar";
     const data = await getAboutDesc(locale);
 
     return (
@@ -50,30 +50,6 @@ const AboutUsContent = async ({ t, locale }) => {
                 {data.description}
               </p>
 
-              {/* {(data?.image_one || data?.image_two) && (
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8 mb-[16px] md:mb-[40px]">
-                  {data?.image_one && (
-                    <div className="w-full md:w-1/2">
-                      <img
-                        className="w-full h-full object-cover rounded-md shadow-md max-h-[400px]"
-                        src={data.image_one}
-                        alt="Certificate"
-                      />
-                    </div>
-                  )}
-
-                  {data?.image_two && (
-                    <div className="w-full md:w-1/2">
-                      <img
-                        className="w-full h-full object-cover rounded-md shadow-md max-h-[400px]"
-                        src={data.image_two}
-                        alt="Certificate"
-                      />
-                    </div>
-                  )}
-                </div>
-              )} */}
-
               <Link
                 href={`/${locale}/about-us`}
                 className=" transition-colors  duration-300 hover:text-custom-maincolor hover:bg-custom-whiteColor flex items-center justify-center leading-[22.5px] text-[14px] md:text-[16px] xl:text-[20px] font-normal text-custom-whiteColor bg-custom-maincolor w-[119px] md:w-[148px] h-[46px] md:h-[52px] rounded-[10px]"
@@ -89,9 +65,10 @@ const AboutUsContent = async ({ t, locale }) => {
 
               {/* Image */}
               <figure className="relative z-10 w-full aspect-[800/500]">
-                <img
+                <Image
                   src="/AboutUs/house.webp"
-                  alt="CarImage"
+                  alt="House"
+                  fill
                   className="w-full h-full object-contain"
                 />
               </figure>

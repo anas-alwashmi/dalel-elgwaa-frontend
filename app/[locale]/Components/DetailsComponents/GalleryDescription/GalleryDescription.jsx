@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import PlainSocialLinks from "../../SocialLinks/PlainSocialLinks";
+import Image from "next/image";
 
 export default function GalleryDescription({ data, locale, title }) {
   const isRTL = locale === "ar";
@@ -41,7 +42,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.offer_type && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/showtype.svg" alt="showtype" />
+              <Image
+                src="/detailspage/showtype.svg"
+                alt="showtype"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.offerType")}
               </p>
@@ -60,7 +66,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.area && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/space.svg" alt="Space" />
+              <Image
+                src="/detailspage/space.svg"
+                alt="Space"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.space")}
               </p>
@@ -77,7 +88,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.type && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/realestatetype.svg" alt="realestatetype" />
+              <Image
+                src="/detailspage/realestatetype.svg"
+                alt="realestatetype"
+                width={20}
+                height={20}
+              />
               {
                 <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                   {t("GalleryDescription.realEstateType")}
@@ -94,7 +110,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.furnishing && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/realestatetype.svg" alt="realestatetype" />
+              <Image
+                src="/detailspage/realestatetype.svg"
+                alt="realestatetype"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.furnishing")}
               </p>
@@ -109,7 +130,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.floor && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/floor.svg" alt="floor" />
+              <Image
+                src="/detailspage/floor.svg"
+                alt="floor"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.floor")}
               </p>
@@ -124,7 +150,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.finishing && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/Finishing.svg" alt="Finishing" />
+              <Image
+                src="/detailspage/Finishing.svg"
+                alt="Finishing"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.finishing")}{" "}
               </p>
@@ -139,7 +170,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.rooms && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/roomsnumber.svg" alt="roomsnumber" />
+              <Image
+                src="/detailspage/roomsnumber.svg"
+                alt="roomsnumber"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.rooms")}
               </p>
@@ -152,7 +188,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.bathrooms && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/bathrooms.svg" alt="bathrooms" />
+              <Image
+                src="/detailspage/bathrooms.svg"
+                alt="bathrooms"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.bathrooms")}
               </p>
@@ -165,7 +206,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.link && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/ContactUs/address.svg" alt="location" />
+              <Image
+                src="/ContactUs/address.svg"
+                alt="location"
+                width={20}
+                height={20}
+              />
             </div>
             <a
               href={data.link}
@@ -180,7 +226,12 @@ export default function GalleryDescription({ data, locale, title }) {
         {data.added_by && (
           <div className="items-center flex flex-row gap-x-[8px] md:gap-x-[24px]">
             <div className="flex flex-row gap-x-[8px]">
-              <img src="/detailspage/showtype.svg" alt="added_by" />
+              <Image
+                src="/detailspage/showtype.svg"
+                alt="added_by"
+                width={20}
+                height={20}
+              />
               <p className="text-custom-maincolor font-normal text-[10px] xs:text-[11px] md:text-[16px] leading-[17.86px] ">
                 {t("GalleryDescription.addedBy")}
               </p>

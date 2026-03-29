@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function RealEstateCard({
@@ -28,20 +29,24 @@ export default function RealEstateCard({
       <div className="relative  h-[354px] md:h-[364px] flex flex-col  justify-center">
         <div className="bg-custom-whiteColor z-40 absolute w-[144px] mt-[12.5px] h-[28px] md:w-[186px] md:h-[36px] flex items-center justify-between px-[12px]  top-[16px] md:top-[20px] lg:top-[16px] right-[10px] rounded-[5px]">
           <div className="flex flex-row items-center justify-center gap-x-[4px]">
-            <img
+            <Image
               className="md:w-[28px] md:h-[28px]"
               src="/CardIcons/mdi_eye-outline.svg"
               alt="viewsicon"
+              width={20}
+              height={20}
             />
             <p className="text-[14px] md:text-[16px] font-bold  text-custom-gray525">
               {view}
             </p>
           </div>
           <div className="flex flex-row items-center justify-center gap-x-[4px]">
-            <img
+            <Image
               className="md:w-[28px] md:h-[28px]"
               src="/CardIcons/mdi_key-chain.svg"
               alt="keychainicon"
+              width={20}
+              height={20}
             />
             <p className="text-[14px] md:text-[16px] font-bold  text-custom-gray525">
               {reservation}
@@ -51,12 +56,13 @@ export default function RealEstateCard({
 
         {/* figure with Watermark */}
         <figure className="relative w-full h-[65.9%] flex items-center justify-center rounded-[15px] overflow-hidden">
-          <img
+          <Image
             className="w-full h-full object-cover"
-            width="800"
-            height="600"
-            src={image}
+            width={800}
+            height={600}
+            src={image || "/placeholder.jpg"}
             alt="RealEstateImage"
+            unoptimized={true}
           />
           {/* Overlay inside the image */}
           {isAvailable === 0 && (
@@ -67,9 +73,11 @@ export default function RealEstateCard({
             </div>
           )}
           <div className="absolute bottom-2 right-2 opacity-50">
-            <img
+            <Image
               src="/watermark/watermark.svg"
               alt="Dalel Jawaa Watermark"
+              width={32}
+              height={32}
               className="w-8 h-8 object-contain"
             />
           </div>
@@ -84,10 +92,12 @@ export default function RealEstateCard({
         <div className="flex flex-row items-center gap-x-[12px] pt-[8px]">
           {rooms && (
             <div className="flex items-center gap-x-[4px]">
-              <img
+              <Image
                 src="/detailspage/roomsnumber.svg"
                 className="w-[16px] h-[16px]"
                 alt="rooms"
+                width={16}
+                height={16}
               />
               <span className="text-custom-gray525 text-[12px] font-bold">
                 {rooms}
@@ -96,10 +106,12 @@ export default function RealEstateCard({
           )}
           {bathrooms && (
             <div className="flex items-center gap-x-[4px]">
-              <img
+              <Image
                 src="/detailspage/bathrooms.svg"
                 className="w-[16px] h-[16px]"
                 alt="bathrooms"
+                width={16}
+                height={16}
               />
               <span className="text-custom-gray525 text-[12px] font-bold">
                 {bathrooms}
@@ -108,10 +120,12 @@ export default function RealEstateCard({
           )}
           {area && (
             <div className="flex items-center gap-x-[4px]">
-              <img
+              <Image
                 src="/detailspage/space.svg"
                 className="w-[16px] h-[16px]"
                 alt="area"
+                width={16}
+                height={16}
               />
               <span className="text-custom-gray525 text-[12px] font-bold">
                 {area} {t("GalleryDescription.meter")}

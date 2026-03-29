@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const getStatistics = async (locale) => {
   const response = await fetch(
@@ -100,10 +101,12 @@ const CounterSectionContent = async ({ t, locale }) => {
                 isRTL ? "pr-[15px] xl:pr-[21px]" : "pl-[15px] xl:pl-[21px]"
               }  order-1 md:order-2 pb-[15px] xl:pb-[21px] flex-1  xl:flex-[45%]  relative after:content-[''] after:absolute after:z-[-5] after:w-full after:h-full after:bottom-[-1px] after:left-0 after:bg-custom-maincolor  after:rounded-[10px] `}
             >
-              <img
+              <Image
                 className="w-full h-full object-cover  rounded-[15px]"
                 src="/CounterSection/CouterSectionImage.webp"
-                alt=""
+                alt="Statistics"
+                width={800}
+                height={600}
               />
             </figure>
           </div>

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import FilterComponent from "../FilterComponent/FilterComponent";
+import Image from "next/image";
 
 async function fetchBanner(locale) {
   const response = await fetch(
@@ -28,11 +29,11 @@ export default async function HeroSection({ locale }) {
     <div className="relative h-[500px] md:h-[calc(100vh-95px)] md:rounded-b-[15px]">
       {/* <!-- Image Container --> */}
       <figure className="absolute inset-0 w-full h-full aspect-[4/3] md:aspect-[16/9]">
-        <img
+        <Image
           src="/HeroSection/hero.webp"
           alt="Background"
-          // width="1920"
-          // height="1080"
+          fill
+          priority
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
