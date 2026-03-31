@@ -3,10 +3,10 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 export default function ConfirmationModal({ isOpen, onClose, data, locale }) {
-  if (!isOpen) return null;
-
   const t = useTranslations();
   const isRTL = locale === "ar";
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity">
